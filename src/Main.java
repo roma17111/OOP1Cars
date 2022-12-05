@@ -10,12 +10,15 @@ public class Main {
                 "красный", 2.4);
         Car car5 = new Car("Hyundai", "Avante", 2016, "Южная корея(Южной Корее)",
                 "оранжевый", 1.6);
+        Car car6 = new Car(null, null, -1990, "", "",
+                -1.2);
 
         System.out.println(car1);
         System.out.println(car2);
         System.out.println(car3);
         System.out.println(car4);
         System.out.println(car5);
+        System.out.println(car6);
 
     }
 }
