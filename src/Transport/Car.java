@@ -14,7 +14,7 @@ public class Car {
 
         public Insurance(LocalDate expireDate, double cost, String number) {
             if (expireDate == null) {
-                expireDate = LocalDate.now().plusDays(365);
+                this.expireDate = LocalDate.now().plusDays(365);
             } else {
                 this.expireDate = expireDate;
             }
@@ -158,6 +158,7 @@ public class Car {
         } else {
             this.key = key;
         }
+        this.insurance = new Insurance();
     }
 
     public String getBrand() {
@@ -275,7 +276,10 @@ public class Car {
                         registrationNumber + " количество мест: " + numberOfSeats +
                         " тип резины: " + (isTypeOfTiresCar() ? "Летняя" : "Зимняя") +
                         "Доступ: " + (key.isWithoutKeyAccess() ? " Ключевой " : " бесключевой "
-                        + " Запуск: " + (key.isRemoteRuneEngine() ? "разрешен" : "запрещён"));
+                        + " Запуск: " + (key.isRemoteRuneEngine() ? "разрешен" : "запрещён ") + " Страховка: " +
+                        " Дата: "
+                + insurance.expireDate + " " + " Номер: " + insurance.number + " Стоимость: " + insurance.cost
+                );
 
     }
 }
