@@ -14,6 +14,10 @@ public class Main {
         Car car5 = new Car("Hyundai", "Avante", 2016, "Южная корея(Южной Корее)",
                 "оранжевый", 1.6, "ручная", "седан", "х000хх000", 5);
 
+        car2.setTypeOfTiresCar(true);
+        car5.setTypeOfTiresCar(true);
+        System.out.println(car1.isCorrectNumber(car1.getRegistrationNumber()));
+
 
         System.out.println(car1);
         System.out.println(car2);

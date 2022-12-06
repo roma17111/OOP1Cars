@@ -1,5 +1,7 @@
 package Transport;
 
+import java.time.LocalDate;
+import java.util.Locale;
 public class Car {
     private final String brand;
     private final String model;
@@ -63,7 +65,7 @@ public class Car {
         }
         if (registrationNumber == null || registrationNumber.isEmpty()) {
             this.registrationNumber = "not information";
-        }else {
+        }  else {
             this.registrationNumber = registrationNumber;
         }
         if (numberOfSeats < 0) {
@@ -73,6 +75,7 @@ public class Car {
         } else {
             this.numberOfSeats = numberOfSeats;
         }
+
     }
 
     public String getBrand() {
@@ -116,32 +119,55 @@ public class Car {
     }
 
     public boolean isTypeOfTiresCar() {
+        typeOfTiresCar = !typeOfTiresCar;
         return typeOfTiresCar;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public void setEngineVolume(double engineVolume) {
-        this.engineVolume = engineVolume;
-    }
-
-    public void setTransmission(String transmission) {
-        this.transmission = transmission;
-    }
-
-    public void setBodyType(String bodyType) {
-        this.bodyType = bodyType;
-    }
-
-    public void setRegistrationNumber(String registrationNumber) {
-        this.registrationNumber = registrationNumber;
     }
 
     public void setTypeOfTiresCar(boolean typeOfTiresCar) {
         this.typeOfTiresCar = typeOfTiresCar;
     }
+
+    public void setColor(String color) {
+        if (color == null || color == "")
+            this.color = "белый";
+        else {
+            this.color = color;
+        }
+    }
+
+
+
+    public void setBodyType(String bodyType) {
+        if (bodyType == null || bodyType.isEmpty()) {
+            this.bodyType = "eRROr";
+        }else {
+            this.bodyType = bodyType;
+        }
+    }
+
+    public void setRegistrationNumber(String registrationNumber) {
+        if (registrationNumber == null || registrationNumber.isEmpty()) {
+            this.registrationNumber = "not information";
+        }  else {
+            this.registrationNumber = registrationNumber;
+        }
+    }
+
+    public boolean isCorrectNumber(String registrationNumber) {
+        if (registrationNumber.length() != 9) {
+            return false;}
+        char [] nums = registrationNumber.toCharArray();
+        if (!Character.isAlphabetic(nums[0]) || !Character.isAlphabetic(nums[4]) ||
+                !Character.isAlphabetic(nums[5]) ) {
+            return false;
+        }else if (!Character.isDigit(nums[1]) || !Character.isDigit(nums[2]) || !Character.isDigit(nums[3]) ||
+                !Character.isDigit(nums[6]) || !Character.isDigit(nums[7]) || !Character.isDigit(nums[8])) {
+            return false;
+        }
+
+        return true;
+    }
+
 
     @Override
     public String toString() {
@@ -154,6 +180,6 @@ public class Car {
                         " цвет. объем двигателя — " + engineVolume + " Л." +
                 " Трансмиссия: " +  transmission +" тип кузова: " + bodyType + " регистрационный номер: " +
                         registrationNumber +" количество мест: " + numberOfSeats +
-                " тип резины: " + typeOfTiresCar;
+                " тип резины: " + (isTypeOfTiresCar()? "Летняя" : "Зимняя");
     }
 }
