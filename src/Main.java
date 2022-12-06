@@ -1,3 +1,5 @@
+import Transport.Car;
+
 public class Main {
     public static void main(String[] args) {
         Car car1 = new Car("Lada", "Granta", 2015, "Россия(и)",
