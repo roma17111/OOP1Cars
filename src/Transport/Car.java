@@ -2,7 +2,81 @@ package Transport;
 
 import java.time.LocalDate;
 import java.util.Locale;
+
 public class Car {
+
+    public static class Insurance {
+
+
+        private LocalDate expireDate;
+        private final double cost;
+        private final String number;
+
+        public Insurance(LocalDate expireDate, double cost, String number) {
+            if (expireDate == null) {
+                expireDate = LocalDate.now().plusDays(365);
+            } else {
+                this.expireDate = expireDate;
+            }
+            this.cost = cost;
+            if (number == null || number.isEmpty()) {
+                this.number = "123456789";
+            } else {
+                this.number = number;
+            }
+        }
+
+        public Insurance () {
+            this(null, 110.111, null);
+        }
+
+        public LocalDate getExpireDate() {
+            return expireDate;
+        }
+
+        public double getCost() {
+            return cost;
+        }
+
+        public String getNumber() {
+            return number;
+        }
+
+        public void checkEmpireDate() {
+            if (expireDate.isBefore(LocalDate.now()) || expireDate.equals(LocalDate.now())) {
+                System.out.println("Нужно срочно оформлять страховку");
+            }
+        }
+
+        public void checkLongNumber() {
+            if (number.length() != 9) {
+                System.out.println("Номер страховки некорректен");
+            }
+        }
+    }
+
+    public static class Key {
+        private final boolean remoteRuneEngine;
+        private final boolean withoutKeyAccess;
+
+        public Key(boolean remoteRuneEngine, boolean withoutKeyAccess) {
+            this.remoteRuneEngine = remoteRuneEngine;
+            this.withoutKeyAccess = withoutKeyAccess;
+        }
+
+        public Key() {
+            this(false, false);
+        }
+
+        public boolean isRemoteRuneEngine() {
+            return remoteRuneEngine;
+        }
+
+        public boolean isWithoutKeyAccess() {
+            return withoutKeyAccess;
+        }
+    }
+
     private final String brand;
     private final String model;
     private final int year;
@@ -13,12 +87,16 @@ public class Car {
     private String transmission;
     private String bodyType;
     private String registrationNumber;
-    private  int numberOfSeats;
+    private int numberOfSeats;
     private boolean typeOfTiresCar;
+
+    private Key key;
+
+    private Insurance insurance;
 
 
     public Car(String brand, String model, int year, String country, String color, double engineVolume,
-    String transmission, String bodyType, String registrationNumber, int numberOfSeats) {
+               String transmission, String bodyType, String registrationNumber, int numberOfSeats) {
         if (brand == null || brand == "")
             this.brand = "Default";
         else {
@@ -55,17 +133,17 @@ public class Car {
         if (transmission.equalsIgnoreCase("автомат") || transmission.equalsIgnoreCase("автоматическая") ||
                 transmission.equalsIgnoreCase("ручная") || transmission.equalsIgnoreCase("ручка")) {
             this.transmission = transmission;
-        }else {
+        } else {
             this.transmission = "not information";
         }
         if (bodyType == null || bodyType.isEmpty()) {
             this.bodyType = "not information";
-        }else {
+        } else {
             this.bodyType = bodyType;
         }
         if (registrationNumber == null || registrationNumber.isEmpty()) {
             this.registrationNumber = "not information";
-        }  else {
+        } else {
             this.registrationNumber = registrationNumber;
         }
         if (numberOfSeats < 0) {
@@ -75,7 +153,11 @@ public class Car {
         } else {
             this.numberOfSeats = numberOfSeats;
         }
-
+        if (key == null) {
+            this.key = new Key();
+        } else {
+            this.key = key;
+        }
     }
 
     public String getBrand() {
@@ -136,11 +218,10 @@ public class Car {
     }
 
 
-
     public void setBodyType(String bodyType) {
         if (bodyType == null || bodyType.isEmpty()) {
             this.bodyType = "eRROr";
-        }else {
+        } else {
             this.bodyType = bodyType;
         }
     }
@@ -148,19 +229,20 @@ public class Car {
     public void setRegistrationNumber(String registrationNumber) {
         if (registrationNumber == null || registrationNumber.isEmpty()) {
             this.registrationNumber = "not information";
-        }  else {
+        } else {
             this.registrationNumber = registrationNumber;
         }
     }
 
     public boolean isCorrectNumber(String registrationNumber) {
         if (registrationNumber.length() != 9) {
-            return false;}
-        char [] nums = registrationNumber.toCharArray();
-        if (!Character.isAlphabetic(nums[0]) || !Character.isAlphabetic(nums[4]) ||
-                !Character.isAlphabetic(nums[5]) ) {
             return false;
-        }else if (!Character.isDigit(nums[1]) || !Character.isDigit(nums[2]) || !Character.isDigit(nums[3]) ||
+        }
+        char[] nums = registrationNumber.toCharArray();
+        if (!Character.isAlphabetic(nums[0]) || !Character.isAlphabetic(nums[4]) ||
+                !Character.isAlphabetic(nums[5])) {
+            return false;
+        } else if (!Character.isDigit(nums[1]) || !Character.isDigit(nums[2]) || !Character.isDigit(nums[3]) ||
                 !Character.isDigit(nums[6]) || !Character.isDigit(nums[7]) || !Character.isDigit(nums[8])) {
             return false;
         }
@@ -168,6 +250,17 @@ public class Car {
         return true;
     }
 
+    public Key getKey() {
+        return key;
+    }
+
+    public void setKey(Key key) {
+        this.key = key;
+    }
+
+    public Insurance getInsurance() {
+        return insurance;
+    }
 
     @Override
     public String toString() {
@@ -178,8 +271,11 @@ public class Car {
                         ". сборка " + country +
                         ". " + color +
                         " цвет. объем двигателя — " + engineVolume + " Л." +
-                " Трансмиссия: " +  transmission +" тип кузова: " + bodyType + " регистрационный номер: " +
-                        registrationNumber +" количество мест: " + numberOfSeats +
-                " тип резины: " + (isTypeOfTiresCar()? "Летняя" : "Зимняя");
+                        " Трансмиссия: " + transmission + " тип кузова: " + bodyType + " регистрационный номер: " +
+                        registrationNumber + " количество мест: " + numberOfSeats +
+                        " тип резины: " + (isTypeOfTiresCar() ? "Летняя" : "Зимняя") +
+                        "Доступ: " + (key.isWithoutKeyAccess() ? " Ключевой " : " бесключевой "
+                        + " Запуск: " + (key.isRemoteRuneEngine() ? "разрешен" : "запрещён"));
+
     }
 }
