@@ -131,22 +131,6 @@ public class Car extends Transport {
         this.insurance = new Insurance();
     }
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
     public String getColor() {
         return color;
     }
@@ -241,10 +225,10 @@ public class Car extends Transport {
     @Override
     public String toString() {
         return
-                brand +
-                        " " + model +
-                        ". год выпуска " + year +
-                        ". сборка " + country +
+                getBrand() +
+                        " " + getModel()+
+                        ". год выпуска " + getYear() +
+                        ". сборка " + getCountry()+
                         ". " + color +
                         " цвет. объем двигателя — " + engineVolume + " Л." + "\n" +
                         " Трансмиссия: " + transmission + " тип кузова: " + bodyType + " регистрационный номер: " +

@@ -1,12 +1,12 @@
 package Transport;
 
 public class Transport {
-    protected final String brand;
-    protected final String model;
-    protected final int year;
-    protected final String country;
-    protected String color;
-    protected int maxSpeed;
+   private final String brand;
+    private final String model;
+    private final int year;
+    private final String country;
+    private String color;
+    private int maxSpeed;
 
 
     public Transport(String brand, String model, int year, String country, String color, int maxSpeed) {
@@ -49,7 +49,9 @@ public class Transport {
     }
 
     public void setColor(String color) {
-        if (color != null || !color.isEmpty()) {
+        if (this.color == null || this.color.isEmpty() ) {
+            this.color = "Not Information";}
+        else {
             this.color = color;
         }
     }

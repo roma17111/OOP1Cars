@@ -1,4 +1,5 @@
 import Transport.Car;
+import Transport.Train;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,6 +28,20 @@ public class Main {
         System.out.println(car3);
         System.out.println(car4);
         System.out.println(car5);
+
+
+        Train train1 = new Train("Ласточка", "В-901", 2011, "Россия",
+                null, 301, 3500, 12.00, "Белорусский вокзал",
+                "Минск-пассажирский", 11);
+        Train train2 = new Train("Ленинград", "D-125", 2019, "Россия",
+                null, 270, 1700, 12.30, "Ленинградский вокзал",
+                "Ленинград-Пассажирский", 8);
+
+
+        System.out.println(train1);
+        train1.checkModel();
+        System.out.println(train2);
+        train2.checkModel();
 
 
     }
