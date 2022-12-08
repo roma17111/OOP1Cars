@@ -49,7 +49,7 @@ public class Transport {
     }
 
     public void setColor(String color) {
-        if (this.color == null || this.color.isEmpty() ) {
+        if (color == null ||color.isEmpty() ) {
             this.color = "Not Information";}
         else {
             this.color = color;

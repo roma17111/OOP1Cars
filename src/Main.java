@@ -1,3 +1,4 @@
+import Transport.Bus;
 import Transport.Car;
 import Transport.Train;
 
@@ -42,6 +43,19 @@ public class Main {
         train1.checkModel();
         System.out.println(train2);
         train2.checkModel();
+
+        Bus bus1 = new Bus("Икарус", null, 1992,
+                "Россия", "серо-буро-малиновый",
+                140);
+        Bus bus2 = new Bus("Вольво", null, 2020,
+                "Щвеция", "рыжий",
+                240);
+        Bus bus3 = new Bus("Мерседес", "B-class" , 2010,
+                "Германия", "синий",
+                223);
+        System.out.println(bus1);
+        System.out.println(bus2);
+        System.out.println(bus3);
 
 
     }
