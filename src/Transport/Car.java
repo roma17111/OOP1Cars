@@ -3,7 +3,7 @@ package Transport;
 import java.time.LocalDate;
 import java.util.Locale;
 
-public class Car {
+public class Car extends Transport {
 
     public static class Insurance {
 
@@ -26,7 +26,7 @@ public class Car {
             }
         }
 
-        public Insurance () {
+        public Insurance() {
             this(null, 110.111, null);
         }
 
@@ -77,10 +77,10 @@ public class Car {
         }
     }
 
-    private final String brand;
-    private final String model;
-    private final int year;
-    private final String country;
+
+
+
+
     private String color;
     private double engineVolume;
 
@@ -95,36 +95,10 @@ public class Car {
     private Insurance insurance;
 
 
-    public Car(String brand, String model, int year, String country, String color, double engineVolume,
+    public Car(String brand, String model, int year, String country, String color, int maxSpeed, double engineVolume,
                String transmission, String bodyType, String registrationNumber, int numberOfSeats) {
-        if (brand == null || brand == "")
-            this.brand = "Default";
-        else {
-            this.brand = brand;
-        }
-
-        if (model == null || model == "")
-            this.model = "Default";
-        else {
-            this.model = model;
-        }
-        if (year < 0) {
-            this.year = 2000;
-        } else {
-            this.year = year;
-        }
-
-        if (country == null || country == "")
-            this.country = "Default";
-        else {
-            this.country = country;
-        }
-
-        if (color == null || color == "")
-            this.color = "белый";
-        else {
-            this.color = color;
-        }
+        super(brand,model,year,country,color);
+        setColor(color);
         if (engineVolume < 0.0) {
             this.engineVolume = 1.5;
         } else {
@@ -136,11 +110,7 @@ public class Car {
         } else {
             this.transmission = "not information";
         }
-        if (bodyType == null || bodyType.isEmpty()) {
-            this.bodyType = "not information";
-        } else {
-            this.bodyType = bodyType;
-        }
+        setBodyType(bodyType);
         if (registrationNumber == null || registrationNumber.isEmpty()) {
             this.registrationNumber = "not information";
         } else {
@@ -156,7 +126,7 @@ public class Car {
         if (key == null) {
             this.key = new Key();
         } else {
-            this.key = key;
+            this.key = new Key();
         }
         this.insurance = new Insurance();
     }
@@ -251,6 +221,10 @@ public class Car {
         return true;
     }
 
+    public void setInsurance(Insurance insurance) {
+        this.insurance = insurance;
+    }
+
     public Key getKey() {
         return key;
     }
@@ -263,6 +237,7 @@ public class Car {
         return insurance;
     }
 
+
     @Override
     public String toString() {
         return
@@ -271,14 +246,14 @@ public class Car {
                         ". год выпуска " + year +
                         ". сборка " + country +
                         ". " + color +
-                        " цвет. объем двигателя — " + engineVolume + " Л." +
+                        " цвет. объем двигателя — " + engineVolume + " Л." + "\n" +
                         " Трансмиссия: " + transmission + " тип кузова: " + bodyType + " регистрационный номер: " +
-                        registrationNumber + " количество мест: " + numberOfSeats +
-                        " тип резины: " + (isTypeOfTiresCar() ? "Летняя" : "Зимняя") +
-                        "Доступ: " + (key.isWithoutKeyAccess() ? " Ключевой " : " бесключевой "
-                        + " Запуск: " + (key.isRemoteRuneEngine() ? "разрешен" : "запрещён ") + " Страховка: " +
+                        registrationNumber + " количество мест: " + numberOfSeats + "\n" +
+                        " тип резины: " + (isTypeOfTiresCar() ? "Летняя" : "Зимняя.") +
+                        " Доступ: " + (key.isWithoutKeyAccess() ? " Ключевой " : " бесключевой "
+                        + " Запуск: " + (key.isRemoteRuneEngine() ? "разрешен" : "запрещён ") + "\n" + " Страховка: " +
                         " Дата: "
-                + insurance.expireDate + " " + " Номер: " + insurance.number + " Стоимость: " + insurance.cost
+                        + insurance.expireDate + " " + " Номер: " + insurance.number + " Стоимость: " + insurance.cost
                 );
 
     }
