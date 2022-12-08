@@ -7,13 +7,16 @@ public class Train extends Transport {
     private String finishStation;
     private int numberOfWagons;
 
+
+
     public Train(String brand, String model,
                  int year, String country,
                  String color, int maxSpeed,
                  int priceOfTrip, double timeOfTrip,
                  String departureStation, String finishStation,
-                 int numberOfWagons) {
-        super(brand, model, year, country, color, maxSpeed);
+                 int numberOfWagons,
+                 double fuelPercentage) {
+        super(brand, model, year, country, color, maxSpeed,fuelPercentage);
         setPriceOfTrip(priceOfTrip);
         setTimeOfTrip(timeOfTrip);
         setDepartureStation(departureStation);
@@ -91,6 +94,12 @@ public class Train extends Transport {
         }
     }
 
+    @Override
+    public void refill() {
+        setFuelPercentage(100.00);
+        System.out.println("Ваш поезд" + getBrand() +" заправлен  дизелем ");
+        System.out.println(" количество топлива %: " + getFuelPercentage());
+    }
 
     @Override
     public String toString() {
@@ -98,7 +107,8 @@ public class Train extends Transport {
         return"Поезд " + getBrand() + " Модель " + getModel() + " " + getYear() + " год выпуска в " + getCountry() +
                 " скорость передвижения - " + getMaxSpeed() + "\n" +  " км/ч, станция отправления: " +
                 getDepartureStation() + " И станция назначения:" + getFinishStation() + " Цена поездки: " +
-                getPriceOfTrip() + "\n" + " рублей. В поезде " + getNumberOfWagons() + " вагонов. "
+                getPriceOfTrip() + "\n" + " рублей. В поезде " + getNumberOfWagons() + " вагонов. " +
+                " Остаток топлива в % " + getFuelPercentage()
                 ;
     }
 }

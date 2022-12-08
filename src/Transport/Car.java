@@ -95,9 +95,11 @@ public class Car extends Transport {
     private Insurance insurance;
 
 
+
+
     public Car(String brand, String model, int year, String country, String color, int maxSpeed, double engineVolume,
-               String transmission, String bodyType, String registrationNumber, int numberOfSeats) {
-        super(brand,model,year,country,color);
+               String transmission, String bodyType, String registrationNumber, int numberOfSeats,double fuelPercentage) {
+        super(brand, model , year , country, color , maxSpeed ,fuelPercentage);
         setColor(color);
         if (engineVolume < 0.0) {
             this.engineVolume = 1.5;
@@ -221,6 +223,13 @@ public class Car extends Transport {
         return insurance;
     }
 
+    @Override
+    public void refill() {
+        System.out.println("Автомобиль " + getBrand() + " подьехал на заправку ");
+        setFuelPercentage(100.00);
+        System.out.println(" Ваш Автомобиль " + getBrand() +" заправлен  дизелем ");
+        System.out.println(" количество топлива %: " + getFuelPercentage());
+    }
 
     @Override
     public String toString() {
@@ -237,8 +246,9 @@ public class Car extends Transport {
                         " Доступ: " + (key.isWithoutKeyAccess() ? " Ключевой " : " бесключевой "
                         + " Запуск: " + (key.isRemoteRuneEngine() ? "разрешен" : "запрещён ") + "\n" + " Страховка: " +
                         " Дата: "
-                        + insurance.expireDate + " " + " Номер: " + insurance.number + " Стоимость: " + insurance.cost
-                );
+                        + insurance.expireDate + " " + " Номер: " + insurance.number + " Стоимость: " + insurance.cost +
+                        " Остаток топлива в % " + getFuelPercentage())
+                ;
 
     }
 }

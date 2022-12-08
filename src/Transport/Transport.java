@@ -1,21 +1,29 @@
 package Transport;
 
-public class Transport {
-   private final String brand;
+public abstract class Transport {
+    private final String brand;
     private final String model;
     private final int year;
     private final String country;
     private String color;
     private int maxSpeed;
 
+    double fuelPercentage;
 
-    public Transport(String brand, String model, int year, String country, String color, int maxSpeed) {
+    public abstract void refill();
+
+
+    public Transport(String brand, String model, int year, String country,
+                     String color,
+                     int maxSpeed,
+                     double fuelPercentage) {
         this.brand = brand;
         this.model = model;
         this.year = year;
         this.country = country;
         setColor(color);
         setMaxSpeed(maxSpeed);
+        setFuelPercentage(fuelPercentage);
     }
 
 
@@ -44,14 +52,26 @@ public class Transport {
         return country;
     }
 
+    public double getFuelPercentage() {
+        return fuelPercentage;
+    }
+
+    public void setFuelPercentage(double fuelPercentage) {
+        if (fuelPercentage > 100 || fuelPercentage < 0) {
+            this.fuelPercentage = 0.00;
+        } else {
+            this.fuelPercentage = fuelPercentage;
+        }
+    }
+
     public String getColor() {
         return color;
     }
 
     public void setColor(String color) {
-        if (color == null ||color.isEmpty() ) {
-            this.color = "Not Information";}
-        else {
+        if (color == null || color.isEmpty()) {
+            this.color = "Not Information";
+        } else {
             this.color = color;
         }
     }
