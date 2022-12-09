@@ -5,6 +5,10 @@ public class Passengercar extends Car {
         super(brand, model, engineVolume);
     }
 
+    @Override
+    public String getBrand() {
+        return super.getBrand().toUpperCase();
+    }
 
     @Override
     public void race() {

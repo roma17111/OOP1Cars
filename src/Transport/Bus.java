@@ -1,8 +1,15 @@
 package Transport;
 
+import java.util.Locale;
+
 public class Bus extends Car {
     public Bus(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
+    }
+
+    @Override
+    public String getModel() {
+        return super.getModel().toLowerCase();
     }
 
     @Override
