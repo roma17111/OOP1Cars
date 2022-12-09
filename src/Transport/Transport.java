@@ -3,38 +3,48 @@ package Transport;
 public abstract class Transport {
     private final String brand;
     private final String model;
-    private final int year;
+   /* private final int year;
     private final String country;
     private String color;
     private int maxSpeed;
 
     double fuelPercentage;
 
-    public abstract void refill();
+    public abstract void refill();*/
 
 
-    public Transport(String brand, String model, int year, String country,
+    public Transport(String brand, String model/*, int year, String country,
                      String color,
                      int maxSpeed,
-                     double fuelPercentage) {
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
+                     double fuelPercentage*/) {
+        if (brand == null || brand.isEmpty()) {
+            this.brand = "NO NAME";
+        } else {
+            this.brand = brand;
+        }
+
+        if (model == null || model.isEmpty()) {
+            this.model = "Default";
+        } else {
+            this.model = model;
+        }
+
+       /* this.year = year;
         this.country = country;
         setColor(color);
         setMaxSpeed(maxSpeed);
-        setFuelPercentage(fuelPercentage);
+        setFuelPercentage(fuelPercentage);*/
     }
 
 
-    public Transport(String brand, String model, int year, String country, String color) {
+    /*public Transport(String brand, String model, int year, String country, String color) {
         this.brand = brand;
         this.model = model;
         this.year = year;
         this.country = country;
         setColor(color);
         this.maxSpeed = 250;
-    }
+    }*/
 
     public String getBrand() {
         return brand;
@@ -44,7 +54,7 @@ public abstract class Transport {
         return model;
     }
 
-    public int getYear() {
+  /*  public int getYear() {
         return year;
     }
 
@@ -86,5 +96,5 @@ public abstract class Transport {
         } else {
             this.maxSpeed = maxSpeed;
         }
-    }
+    }*/
 }

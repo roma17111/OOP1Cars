@@ -3,9 +3,11 @@ package Transport;
 import java.time.LocalDate;
 import java.util.Locale;
 
-public class Car extends Transport {
+public abstract class Car extends Transport {
 
-    public static class Insurance {
+
+
+   /* public static class Insurance {
 
 
         private LocalDate expireDate;
@@ -53,9 +55,9 @@ public class Car extends Transport {
                 System.out.println("Номер страховки некорректен");
             }
         }
-    }
+    }*/
 
-    public static class Key {
+   /* public static class Key {
         private final boolean remoteRuneEngine;
         private final boolean withoutKeyAccess;
 
@@ -75,29 +77,49 @@ public class Car extends Transport {
         public boolean isWithoutKeyAccess() {
             return withoutKeyAccess;
         }
-    }
+    }*/
 
 
-
-
-
-    private String color;
+    //  private String color;
     private double engineVolume;
 
-    private String transmission;
-    private String bodyType;
-    private String registrationNumber;
-    private int numberOfSeats;
-    private boolean typeOfTiresCar;
+    public Car(String brand, String model, double engineVolume) {
+        super(brand, model);
+        setEngineVolume(engineVolume);
+    }
 
-    private Key key;
+    // private String transmission;
+    //private String bodyType;
+    //private String registrationNumber;
+    //private int numberOfSeats;
+    //private boolean typeOfTiresCar;
 
-    private Insurance insurance;
+    //  private Key key;
 
+    //  private Insurance insurance;
 
+    public void setEngineVolume(double engineVolume) {
+        if (engineVolume < 0) {
+            this.engineVolume = 1.5;
+        } else {
+            this.engineVolume = engineVolume;
+        }
+    }
 
+    public double getEngineVolume() {
+        return engineVolume;
+    }
 
-    public Car(String brand, String model, int year, String country, String color, int maxSpeed, double engineVolume,
+    public static void start() {
+        System.out.println("Автомобили начинают движение");
+    }
+
+    public static void stop() {
+        System.out.println("Автомобили заканчиваютдвижение");
+    }
+
+    public abstract void race();
+/*  public Car(String brand, String model, int year, String country, String color, int maxSpeed, double engineVolume,
                String transmission, String bodyType, String registrationNumber, int numberOfSeats,double fuelPercentage) {
         super(brand, model , year , country, color , maxSpeed ,fuelPercentage);
         setColor(color);
@@ -250,5 +272,5 @@ public class Car extends Transport {
                         " Остаток топлива в % " + getFuelPercentage())
                 ;
 
-    }
+    }*/
 }

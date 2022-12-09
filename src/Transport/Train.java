@@ -1,6 +1,10 @@
 package Transport;
 
-public class Train extends Transport {
+public class Train  extends Transport{
+    public Train(String brand, String model) {
+        super(brand, model);
+    }
+    /*
     private int priceOfTrip;
     private double timeOfTrip;
     private String departureStation;
@@ -110,5 +114,5 @@ public class Train extends Transport {
                 getPriceOfTrip() + "\n" + " рублей. В поезде " + getNumberOfWagons() + " вагонов. " +
                 " Остаток топлива в % " + getFuelPercentage()
                 ;
-    }
+    }*/
 }

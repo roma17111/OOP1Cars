@@ -1,10 +1,12 @@
 import Transport.Bus;
 import Transport.Car;
-import Transport.Train;
+import Transport.Lorrycar;
+import Transport.Passengercar;
+//import Transport.Train;
 
 public class Main {
     public static void main(String[] args) {
-        Car car1 = new Car("Lada", "Granta", 2015, "Россия(и)",
+      /*  Car car1 = new Car("Lada", "Granta", 2015, "Россия(и)",
                 "Желтый(того)", 280,1.7,
                 "автомат", "седан", "х000хх000",
                 4,45.45);
@@ -73,7 +75,25 @@ public class Main {
 
         car1.refill();
         bus3.refill();
+*/
+        Passengercar passengercar1 = new Passengercar("Феррари", "Enszo", 4.7);
+        Passengercar passengercar2 = new Passengercar("Паганни", "Зонда", 4.5);
+        Passengercar passengercar3 = new Passengercar("Бугатти", "veron supersport", 5.2);
+        Passengercar passengercar4 = new Passengercar(null, "supersport", 4.2);
+        passengercar1.race();
 
+        Bus bus1 = new Bus("Mersedes", "b-class", 2.4);
+        Bus bus2 = new Bus("volvo", "class1", 1.4);
+        Bus bus3 = new Bus("Mersedes", null, 2.3);
+        Bus bus4 = new Bus("икарус", null, 4.3);
 
+        bus1.race();
+
+        Lorrycar lorrycar1 = new Lorrycar("Hunday", null, 3.3);
+        Lorrycar lorrycar2 = new Lorrycar("infiniti", null, 4.3);
+        Lorrycar lorrycar3 = new Lorrycar("Камаз", null, 6.3);
+        Lorrycar lorrycar4 = new Lorrycar(null, null, 6.3);
+        lorrycar1.race();
     }
+
 }
