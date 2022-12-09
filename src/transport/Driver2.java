@@ -6,7 +6,6 @@ public class Driver2<C extends Lorrycar> {
     private int experience;
 
 
-
     public Driver2(String fullName, boolean license, int experience) {
         this.fullName = fullName;
         this.license = license;

@@ -25,7 +25,6 @@ public class Driver3<B extends Passengercar>{
     public boolean isLicense() {
         return license;
     }
-
     public void setLicense(boolean license) {
         this.license = license;
     }

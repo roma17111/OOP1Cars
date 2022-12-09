@@ -9,7 +9,6 @@ public class Passengercar extends Car implements Сompeting{
     public String getBrand() {
         return super.getBrand().toUpperCase();
     }
-
     @Override
     public void race() {
         System.out.println("Cегодня проходит гонка в классе легковых автомобилей");

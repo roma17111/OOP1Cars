@@ -22,7 +22,6 @@ public class Driver1<D extends Bus> {
     public boolean isLicense() {
         return license;
     }
-
     public void setLicense(boolean license) {
         this.license = license;
     }

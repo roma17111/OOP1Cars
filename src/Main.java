@@ -3,7 +3,6 @@ import transport.*;
 
 public class Main {
     public static void main(String[] args) {
-
         Passengercar passengercar1 = new Passengercar("Феррари", "Enszo", 4.7);
         Passengercar passengercar2 = new Passengercar("Паганни", "Зонда", 4.5);
         Passengercar passengercar3 = new Passengercar("Бугатти", "veron supersport", 5.2);
@@ -15,7 +14,6 @@ public class Main {
         Bus bus3 = new Bus("Mersedes", null, 2.3);
         Bus bus4 = new Bus("икарус", null, 4.3);
         Bus[] bus = {bus1, bus2, bus3, bus4};
-
 
         bus1.race();
 

@@ -5,7 +5,6 @@ public abstract class Car extends Transport implements Сompeting{
 
 
 
-
     private double engineVolume;
 
     public Car(String brand, String model, double engineVolume) {

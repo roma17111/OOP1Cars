@@ -12,7 +12,6 @@ public class Train  extends Transport{
     private int numberOfWagons;
 
 
-
     public Train(String brand, String model,
                  int year, String country,
                  String color, int maxSpeed,
