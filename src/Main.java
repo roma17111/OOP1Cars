@@ -1,7 +1,4 @@
-import Transport.Bus;
-import Transport.Car;
-import Transport.Lorrycar;
-import Transport.Passengercar;
+import Transport.*;
 
 import java.util.Arrays;
 //import Transport.Train;
@@ -109,5 +106,19 @@ public class Main {
         lorrycar2.addPitstopLorry();
         lorrycar3.addPitstopLorry();
         lorrycar4.addPitstopLorry();
+
+        Driver<Passengercar> driver1 = new Driver("Семёнов артём анатольевич",
+                true, 21);
+        Driver1<Bus> driver2 = new Driver1("Алексеев Вячеслав анатольевич", true, 12);
+        Driver2<Lorrycar> driver3 = new Driver2("Якименко Вероника Владимировна", true, 123);
+
+        driver1.start(passengercar1);
+        driver2.start(bus1);
+        driver3.start(lorrycar2);
+        driver1.refill();
+        driver2.refill();
+        driver3.stop();
+
+
     }
 }
