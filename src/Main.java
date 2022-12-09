@@ -2,6 +2,8 @@ import Transport.Bus;
 import Transport.Car;
 import Transport.Lorrycar;
 import Transport.Passengercar;
+
+import java.util.Arrays;
 //import Transport.Train;
 
 public class Main {
@@ -86,6 +88,7 @@ public class Main {
         Bus bus2 = new Bus("volvo", "class1", 1.4);
         Bus bus3 = new Bus("Mersedes", null, 2.3);
         Bus bus4 = new Bus("икарус", null, 4.3);
+        Bus[] bus = {bus1, bus2, bus3, bus4};
 
         bus1.race();
 
@@ -94,6 +97,17 @@ public class Main {
         Lorrycar lorrycar3 = new Lorrycar("Камаз", null, 6.3);
         Lorrycar lorrycar4 = new Lorrycar(null, null, 6.3);
         lorrycar1.race();
+        passengercar1.addPitstop();
+        passengercar2.addPitstop();
+        passengercar3.addPitstop();
+        passengercar4.addPitstop();
+        bus1.addPitstopBus();
+        bus2.addPitstopBus();
+        bus3.addPitstopBus();
+        bus4.addPitstopBus();
+        lorrycar1.addPitstopLorry();
+        lorrycar2.addPitstopLorry();
+        lorrycar3.addPitstopLorry();
+        lorrycar4.addPitstopLorry();
     }
-
 }

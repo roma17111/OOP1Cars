@@ -3,7 +3,7 @@ package Transport;
 import java.time.LocalDate;
 import java.util.Locale;
 
-public abstract class Car extends Transport {
+public abstract class Car extends Transport implements Сompeting{
 
 
 

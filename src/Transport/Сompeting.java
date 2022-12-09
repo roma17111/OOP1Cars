@@ -4,9 +4,9 @@ public interface Сompeting {
 
     void pitStop();
 
-    double bestTimeOfLap();
+    void bestTimeOfLap();
 
-    int maxSpeed();
+    void maxSpeed();
 
 
 

@@ -2,7 +2,7 @@ package Transport;
 
 import java.util.Locale;
 
-public class Bus extends Car {
+public class Bus extends Car implements Сompeting{
     public Bus(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
     }
@@ -18,6 +18,34 @@ public class Bus extends Car {
         start();
         stop();
     }
+
+    @Override
+    public void pitStop() {
+        System.out.println("Автобус " + getBrand() +" "+
+                getModel() +"С обьёмом двигателя "+getEngineVolume()
+                + " литров заезжает на пит-стоп. ");
+        System.out.println("Пит-стоп окончен");
+    }
+
+    @Override
+    public void bestTimeOfLap() {
+        System.out.println("Автобус"
+        + getBrand() + " выезжает из питстопа и" +
+                "и заезжает на круг. Лучшее время круга 2 минуты и 56 секунд пока никому не удалось побить");
+    }
+
+    @Override
+    public void maxSpeed() {
+        System.out.println("максимальная скорость на трассе 150 километров в час - это абсолютный рекорд");
+    }
+
+    public void addPitstopBus() {
+        pitStop();
+        bestTimeOfLap();
+        maxSpeed();
+    }
+
+
 
     /*public Bus(String brand, String model, int year, String country, String color, int maxSpeed, double fuelPercentage) {
         super(brand, model, year, country, color, maxSpeed, fuelPercentage);
