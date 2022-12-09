@@ -2,7 +2,7 @@ package Transport;
 
 public interface Сompeting {
 
-    boolean pitStop();
+    void pitStop();
 
     double bestTimeOfLap();
 
