@@ -16,6 +16,7 @@ public class Main {
         Bus bus4 = new Bus("икарус", null, 4.3);
         Bus[] bus = {bus1, bus2, bus3, bus4};
 
+
         bus1.race();
 
         Lorrycar lorrycar1 = new Lorrycar("Hunday", null, 3.3);
