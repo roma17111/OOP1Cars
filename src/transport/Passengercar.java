@@ -1,4 +1,4 @@
-package Transport;
+package transport;
 
 public class Passengercar extends Car implements Сompeting{
     public Passengercar(String brand, String model, double engineVolume) {

@@ -1,13 +1,13 @@
-package Transport;
+package transport;
 
-public class Driver2<C extends Lorrycar> {
+public class Driver1<D extends Bus> {
     private final String fullName;
     private boolean license;
     private int experience;
 
 
 
-    public Driver2(String fullName, boolean license, int experience) {
+    public Driver1(String fullName, boolean license, int experience) {
         this.fullName = fullName;
         this.license = license;
         setExperience(experience);
@@ -17,6 +17,7 @@ public class Driver2<C extends Lorrycar> {
     public String getFullName() {
         return fullName;
     }
+
 
     public boolean isLicense() {
         return license;
@@ -36,9 +37,10 @@ public class Driver2<C extends Lorrycar> {
         }else {
             this.experience = experience;}
     }
-    public void start(Lorrycar lorrycar) {
-        System.out.println("Водитель " + getFullName() + '\n' +
-                " управляющий грузовиком: "  + lorrycar.getBrand() + " " + lorrycar.getModel()
+
+    public void start(D bus) {
+        System.out.println("Водитель " + getFullName() +
+                " управляющий автобусом " + bus.getBrand() + " " + bus.getModel() + "\n"
                 + " и будет участвовать в заезде");
     }
 

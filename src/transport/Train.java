@@ -1,4 +1,4 @@
-package Transport;
+package transport;
 
 public class Train  extends Transport{
     public Train(String brand, String model) {
