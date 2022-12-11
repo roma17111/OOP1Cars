@@ -47,6 +47,6 @@ public class Main {
         driver2.refill();
         driver3.stop();
 
-
+Car.raceStart(passengercar1,passengercar2,passengercar3);
     }
 }

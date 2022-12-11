@@ -33,4 +33,15 @@ public abstract class Car extends Transport implements Сompeting{
     }
 
     public abstract void race();
+
+    public static void raceStart(Car... cars) {
+        double vin = Integer.MIN_VALUE;
+        String vinRace = null;
+        for (Car car : cars) {
+            if (car.getEngineVolume() > vin) {
+                vin = car.getEngineVolume();
+                vinRace =  car.getBrand()+" "+car.getModel() ;
+            }
+        }System.out.println("Победитель " + vinRace);
+    }
 }
