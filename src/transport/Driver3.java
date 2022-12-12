@@ -42,9 +42,10 @@ public class Driver3<B extends Passengercar>{
 
 
     public void start(B passengercar) {
-            System.out.println("Водитель " + + '\n' +
+            System.out.println("\n" + "Водитель " + getFullName()+ '\n' +
                     " управляющий машиной " + passengercar.getBrand() +" "+ passengercar.getModel()
-                    + " и будет участвовать в заезде");
+                    + " и будет участвовать в заезде" );
+            passengercar.printInfoAboutCars();
         }
 
         public void stop() {

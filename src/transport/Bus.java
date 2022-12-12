@@ -1,14 +1,55 @@
 package transport;
 
 
-public class Bus extends Car implements Сompeting{
-    public Bus(String brand, String model, double engineVolume) {
+public class Bus extends Car implements Сompeting {
+    public enum Capacity {
+        EXTRA_SMALL(0, 10),
+        SMALL(0, 25),
+        MEDIUM(40, 50),
+        LARGE(60, 80),
+        EXTRA_LARGE(100, 120);
+
+        private final int from;
+        private final int to;
+
+        public int getFrom() {
+            return from;
+        }
+
+        public int getTo() {
+            return to;
+        }
+
+        Capacity(int from, int to) {
+            this.from = from;
+            this.to = to;
+        }
+    }
+
+    private Capacity capacity;
+
+    public Bus(String brand, String model, double engineVolume, Capacity capacity) {
         super(brand, model, engineVolume);
+        this.capacity = capacity;
+    }
+
+    public Capacity getCapacity() {
+        return capacity;
     }
 
     @Override
     public String getModel() {
         return super.getModel().toLowerCase();
+    }
+
+    @Override
+    public void printInfoAboutCars() {
+        if (capacity == null) {
+            System.out.println("Неполные данные: ");
+        }else {
+            System.out.println("Вместимость автобуса: от" + capacity.getFrom() +
+                    " до " + capacity.getTo() + " пассажиров");
+        }
     }
 
     @Override
@@ -20,8 +61,8 @@ public class Bus extends Car implements Сompeting{
 
     @Override
     public void pitStop() {
-        System.out.println("Автобус " + getBrand() +" "+
-                getModel() +"С обьёмом двигателя "+getEngineVolume()
+        System.out.println("Автобус " + getBrand() + " " +
+                getModel() + "С обьёмом двигателя " + getEngineVolume()
                 + " литров заезжает на пит-стоп. ");
         System.out.println("Пит-стоп окончен");
     }
@@ -29,7 +70,7 @@ public class Bus extends Car implements Сompeting{
     @Override
     public void bestTimeOfLap() {
         System.out.println("Автобус"
-        + getBrand() + " выезжает из питстопа и" +
+                + getBrand() + " выезжает из питстопа и" +
                 "и заезжает на круг. Лучшее время круга 2 минуты и 56 секунд пока никому не удалось побить");
     }
 
@@ -44,4 +85,14 @@ public class Bus extends Car implements Сompeting{
         maxSpeed();
     }
 
+    @Override
+    public String toString() {
+        return "Автобус: " + "\n" +
+                "Бренд: " + getBrand() + "\n" +
+                "Модель: " + getModel() + "\n" +
+                "Обьем двигателя: " + getEngineVolume() + "\n" +
+                "Вместимость пассажиров: от " + capacity.getFrom() + " до " + capacity.to
+                ;
+    }
 }
+

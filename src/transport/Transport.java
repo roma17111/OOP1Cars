@@ -31,4 +31,11 @@ public abstract class Transport {
         return model;
     }
 
+    @Override
+    public String toString() {
+        return "Transport{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                '}';
+    }
 }

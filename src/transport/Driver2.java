@@ -36,9 +36,10 @@ public class Driver2<C extends Lorrycar> {
             this.experience = experience;}
     }
     public void start(C lorrycar) {
-        System.out.println("Водитель " + getFullName() + '\n' +
+        System.out.println("\n" + "Водитель " + getFullName() + '\n' +
                 " управляющий грузовиком: "  + lorrycar.getBrand() + " " + lorrycar.getModel()
-                + " и будет участвовать в заезде");
+                + " и будет участвовать в заезде" );
+        lorrycar.printInfoAboutCars();
     }
 
     public void stop() {

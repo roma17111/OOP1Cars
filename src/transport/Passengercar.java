@@ -1,14 +1,67 @@
 package transport;
 
 public class Passengercar extends Car implements Сompeting{
-    public Passengercar(String brand, String model, double engineVolume) {
+
+    public enum CarBodyType {
+
+        SEDAN_CAR("Седан"),
+        HATCHBACK_CAR("хетчбэк"),
+        COUPE("Купе"),
+        UNIVERSAL("Универсал"),
+        SUV_CAR("Внедорожник"),
+        CROSSOVER_CAR("Кроссовер"),
+        PICKUP_TRACK_CAR("Пикап"),
+        VAN_CAR("Фургон"),
+        MINI_VAN_CAR("Минивен");
+
+        private final String bodyType;
+
+        CarBodyType(String bodyType) {
+            this.bodyType = bodyType;
+        }
+
+        public String getBodyType() {
+            return bodyType;
+        }
+
+        @Override
+        public String toString() {
+            return
+                    super.toString() +
+                            "Тип кузова - " + bodyType
+                    ;
+        }
+    }
+
+
+
+    private CarBodyType bodyType;
+
+    public Passengercar(String brand, String model, double engineVolume,CarBodyType bodyType) {
         super(brand, model, engineVolume);
+        this.bodyType = bodyType;
+
+    }
+
+    public CarBodyType getBodyType() {
+        return bodyType;
     }
 
     @Override
     public String getBrand() {
         return super.getBrand().toUpperCase();
     }
+
+    @Override
+    public void printInfoAboutCars() {
+        if (bodyType == null) {
+            System.out.println("Введено некорректное значение");
+        }else {
+            System.out.println("Тип кузова - " + bodyType);
+        }
+
+    }
+
     @Override
     public void race() {
         System.out.println("Cегодня проходит гонка в классе легковых автомобилей");
@@ -42,7 +95,19 @@ public class Passengercar extends Car implements Сompeting{
         pitStop();
         bestTimeOfLap();
         maxSpeed();
+
+
     }
+    @Override
+    public String toString() {
+        return "Класс автомобили: " + "\n" +
+                "Бренд: " + getBrand() + "\n" +
+                "Модель: " + getModel() + "\n" +
+                "Обьем двигателя: " + getEngineVolume() + "\n" +
+                "Тип кузова: " + getBodyType().bodyType
+                ;
+    }
+
 
 }
 

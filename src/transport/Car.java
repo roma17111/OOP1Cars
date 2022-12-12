@@ -1,15 +1,19 @@
 package transport;
 
 
-public abstract class Car extends Transport implements Сompeting{
+import java.util.Arrays;
 
-
+public abstract class Car extends Transport implements Сompeting {
 
     private double engineVolume;
 
-    public Car(String brand, String model, double engineVolume) {
+
+
+    public Car(String brand, String model, double engineVolume){
         super(brand, model);
         setEngineVolume(engineVolume);
+
+
     }
 
     public void setEngineVolume(double engineVolume) {
@@ -19,6 +23,7 @@ public abstract class Car extends Transport implements Сompeting{
             this.engineVolume = engineVolume;
         }
     }
+
 
     public double getEngineVolume() {
         return engineVolume;
@@ -32,6 +37,7 @@ public abstract class Car extends Transport implements Сompeting{
         System.out.println("Автомобили заканчиваютдвижение");
     }
 
+    public abstract void printInfoAboutCars();
     public abstract void race();
 
     public static void raceStart(Car... cars) {
@@ -40,8 +46,20 @@ public abstract class Car extends Transport implements Сompeting{
         for (Car car : cars) {
             if (car.getEngineVolume() > vin) {
                 vin = car.getEngineVolume();
-                vinRace =  car.getBrand()+" "+car.getModel() ;
+                vinRace = car.getBrand() + " " + car.getModel();
             }
-        }System.out.println("Победитель " + vinRace);
+        }
+        System.out.println("Победитель " + vinRace);
+    }
+
+    @Override
+    public String toString() {
+        return "Класс автомобили: " + "\n" +
+                "Бренд: " + getBrand() + "\n" +
+                "Модель: " + getModel() + "\n" +
+                "Обьем двигателя: " + getEngineVolume() + "\n"
+
+                ;
     }
 }
+

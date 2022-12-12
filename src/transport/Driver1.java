@@ -38,9 +38,10 @@ public class Driver1<D extends Bus> {
     }
 
     public void start(D bus) {
-        System.out.println("Водитель " + getFullName() +
+        System.out.println("\n" + "Водитель " + getFullName() +
                 " управляющий автобусом " + bus.getBrand() + " " + bus.getModel() + "\n"
-                + " и будет участвовать в заезде");
+                + " и будет участвовать в заезде" );
+        bus.printInfoAboutCars();
     }
 
     public void stop() {
