@@ -57,7 +57,7 @@ public class Passengercar extends Car implements Сompeting{
         if (bodyType == null) {
             System.out.println("Введено некорректное значение");
         }else {
-            System.out.println("Тип кузова - " + bodyType);
+            System.out.println("Тип кузова - " + bodyType.getBodyType());
         }
 
     }
