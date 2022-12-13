@@ -1,4 +1,4 @@
-package Transport;
+package transport;
 
 public class Train  extends Transport{
     public Train(String brand, String model) {
@@ -10,7 +10,6 @@ public class Train  extends Transport{
     private String departureStation;
     private String finishStation;
     private int numberOfWagons;
-
 
 
     public Train(String brand, String model,
